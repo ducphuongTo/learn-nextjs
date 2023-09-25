@@ -4,7 +4,7 @@ import { limiter } from "../config/limiter";
 export async function GET(request: Request) {
     const remaining = await limiter.removeTokens(1)
     const origin = request.headers.get('origin')
-    console.log('remain:', remaining)
+
     if (remaining < 1)
     {
         return new NextResponse(null, {
